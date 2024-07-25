@@ -1,9 +1,9 @@
-export default function MealItem({id, imgSrc, name, price, description}) {
+export default function MealItem({ id, imgSrc, name, price, description }) {
 
     return (
         <li>
             <article className="meal-item">
-                <img src={imgSrc} alt={name}/>
+                <img src={imgSrc} alt={name} />
                 <h3>{name}</h3>
                 <h1 className="meal-item-price">{price}$</h1>
                 <div className="meal-item-description">
@@ -14,7 +14,7 @@ export default function MealItem({id, imgSrc, name, price, description}) {
                         type="button"
                         className="button"
                     >
-                            Add to Cart
+                        Add to Cart
                     </button>
                 </div>
             </article>
