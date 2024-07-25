@@ -10,7 +10,12 @@ export default function MealItem({id, imgSrc, name, price, description}) {
                     <p>{description}</p>
                 </div>
                 <div className="meal-item-actions">
-                    <button type="button" className="button">Add to Cart</button>
+                    <button
+                        type="button"
+                        className="button"
+                    >
+                            Add to Cart
+                    </button>
                 </div>
             </article>
         </li>
