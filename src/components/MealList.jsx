@@ -36,6 +36,7 @@ export default function MealList() {
             {meals.map((meal) => (
                 <MealItem
                     key={meal.id}
+                    id={meal.id}
                     imgSrc={`http://localhost:3000/${meal.image}`}
                     name={meal.name}
                     price={meal.price}
