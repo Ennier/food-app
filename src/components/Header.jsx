@@ -5,7 +5,7 @@ export default function Header({ openCart }) {
     const {cartMeals} = useContext(CartContext);
 
     const amount = cartMeals.length;
-
+    
     console.log(cartMeals);
 
     return (

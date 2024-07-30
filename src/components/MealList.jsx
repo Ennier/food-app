@@ -27,10 +27,6 @@ export default function MealList() {
         return <p> Error: Backend not responding</p>
     }
 
-    function handleAddMeals() {
-
-    }
-
     return (
         <ul id="meals">
             {meals.map((meal) => (
