@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-export default function Modal({ show, onClose, children, actionText}) {
+export default function Modal({ show, onClose, content, actionText, openForm}) {
 
     if(!show){
         return null;
@@ -8,10 +8,10 @@ export default function Modal({ show, onClose, children, actionText}) {
 
     return ReactDOM.createPortal(
         <div className="modal">
-            {children}
+            {content}
             <div className="modal-actions">
                 <button className="text-button" onClick={onClose}>Close</button>
-                <button className="button" >{actionText}</button>
+                <button className="button" onClick={openForm} >{actionText}</button>
             </div>
         </div>,
         document.getElementById("modal")
