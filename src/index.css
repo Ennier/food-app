@@ -148,6 +148,14 @@ h1 {
   margin: 0.5rem 0;
 }
 
+.cart h2 {
+  color: black;
+}
+
+.cart-item span {
+  color: black;
+}
+
 .cart-item p {
   margin: 0;
 }

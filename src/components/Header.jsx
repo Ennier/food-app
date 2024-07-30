@@ -1,7 +1,7 @@
-import { useContext } from "react"
+import {useContext} from "react"
 import CartContext from "../context/CartContext"
 
-export default function Header() {
+export default function Header({ openCart }) {
     const {cartMeals} = useContext(CartContext);
 
     const amount = cartMeals.length;
@@ -14,7 +14,12 @@ export default function Header() {
                 <img src="../../public/logo.jpg" alt=""/>
                 REACT FOODORDER
             </h1>
-            <button type="button" className="text-button">Cart ({amount})</button>
+            <button
+                type="button"
+                className="text-button"
+                onClick={openCart}>
+                Cart ({amount})
+            </button>
         </header>
     )
 }
