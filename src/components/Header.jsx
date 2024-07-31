@@ -10,10 +10,12 @@ export default function Header({ openCart }) {
 
     return (
         <header id="main-header">
-            <h1 id="title">
-                <img src="../../public/logo.jpg" alt=""/>
-                REACT FOODORDER
-            </h1>
+            <div id="title">
+                <h1 id="title">
+                    <img src="../../public/logo.jpg" alt=""/>
+                    REACT FOODORDER
+                </h1>
+            </div>
             <button
                 type="button"
                 className="text-button"

@@ -10,9 +10,7 @@ export default function MealItem({ id, imgSrc, name, price, description }) {
                 <img src={imgSrc} alt={name} />
                 <h3>{name}</h3>
                 <h1 className="meal-item-price">${price}</h1>
-                <div className="meal-item-description">
-                    <p>{description}</p>
-                </div>
+                <p className="meal-item-description">{description}</p>
                 <div className="meal-item-actions">
                     <button
                         type="button"

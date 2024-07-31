@@ -11,7 +11,7 @@ export default function Form() {
             <p>Total Amount: {totalAmount}</p>
             
             <div className="control">
-                <label for="">Full name</label>
+                <label for="name">Full name</label>
                 <input type="text" name="name" id="name" />
             </div>
             
