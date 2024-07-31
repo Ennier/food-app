@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 export default function MealList() {
     const [meals, setMeals] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchMeals = async () => {
@@ -16,11 +17,18 @@ export default function MealList() {
                 setMeals(data)
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchMeals();
     }, []);
+
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
 
     /** backend error UI validation */
     if (error){
