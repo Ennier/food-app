@@ -211,6 +211,8 @@ h1 {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .button {
@@ -271,4 +273,8 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+form h1,p,label {
+  color: black;
 }

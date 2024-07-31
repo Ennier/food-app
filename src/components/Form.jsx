@@ -1,9 +1,9 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import CartContext from "../context/CartContext";
 
 export default function Form() {
-    const {cartMeals} = useContext(CartContext);
-    const totalAmount = cartMeals.reduce((total, meal) => total + Number(meal.price*meal.quantity), 0).toFixed(2);
+    const { cartMeals } = useContext(CartContext);
+    const totalAmount = cartMeals.reduce((total, meal) => total + Number(meal.price * meal.quantity), 0).toFixed(2);
 
     return (
         <form>
@@ -26,11 +26,15 @@ export default function Form() {
             </div>
 
             <div className="control-row">
-                <label for="">Postal Code</label>
-                <input type="text" name="postal-code" id="postal-code" />
+                <div className="control">
+                    <label for="">Postal Code</label>
+                    <input type="text" name="postal-code" id="postal-code" />
+                </div>
 
-                <label for="">City</label>
-                <input type="text" name="city" id="city" />
+                <div className="control">
+                    <label for="">City</label>
+                    <input type="text" name="city" id="city" />
+                </div>
             </div>
         </form>
     )
