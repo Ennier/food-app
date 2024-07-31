@@ -1,11 +1,12 @@
 import {useContext} from "react"
 import CartContext from "../context/CartContext"
+import Button from "./Button";
 
 export default function Header({ openCart }) {
     const {cartMeals} = useContext(CartContext);
 
     const amount = cartMeals.length;
-    
+
     console.log(cartMeals);
 
     return (
@@ -16,12 +17,13 @@ export default function Header({ openCart }) {
                     REACT FOODORDER
                 </h1>
             </div>
-            <button
+            <Button
+                text="Cart"
                 type="button"
-                className="text-button"
-                onClick={openCart}>
-                Cart ({amount})
-            </button>
+                classes="text-button"
+                action={openCart}
+                amount={amount}
+            />
         </header>
     )
 }
