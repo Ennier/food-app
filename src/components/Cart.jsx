@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import CartContext from "../context/CartContext";
+import Button from "./Button";
 
 export default function Cart() {
     const {cartMeals, addToCart, removeFromCart} = useContext(CartContext);
@@ -13,9 +14,17 @@ export default function Cart() {
                         <li className="cart-item" key={meal.id}>
                             <span>{meal.name} - {meal.quantity} X ${meal.price}</span>
                             <div className="cart-item-actions">
-                                <button onClick={() => addToCart(meal)}>+</button>
+                                <Button
+                                    action={() => addToCart(meal)}
+                                    text="+"
+                                />
+
                                 <p>{meal.quantity}</p>
-                                <button onClick={() => removeFromCart(meal.id)}>-</button>
+
+                                <Button
+                                    action={() => removeFromCart(meal.id)}
+                                    text="-"
+                                />
                             </div>
                         </li>
                     ))
