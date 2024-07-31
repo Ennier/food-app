@@ -5,7 +5,7 @@ import Button from "./Button";
 export default function Header({ openCart }) {
     const {cartMeals} = useContext(CartContext);
 
-    const amount = cartMeals.length;
+    const totalAmount = cartMeals.reduce((sum, meal) => sum + meal.quantity, 0);
 
     console.log(cartMeals);
 
@@ -22,7 +22,7 @@ export default function Header({ openCart }) {
                 type="button"
                 classes="text-button"
                 action={openCart}
-                amount={amount}
+                amount={totalAmount}
             />
         </header>
     )
