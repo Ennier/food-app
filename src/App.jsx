@@ -9,17 +9,19 @@ import Form from "./components/Form.jsx";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [modalButtonText, setModalButtonText] = useState("");
 
-  function openModal(content) {
+  function openModal(content, buttonText) {
     setModalContent(content);
     setShowModal(true);
+    setModalButtonText(buttonText);
   }
 
   function closeModal() {setShowModal(false);}
 
   return (
     <CartProvider>
-      <Header openCart={() => openModal(<Cart />)}/>
+      <Header openCart={() => openModal(<Cart />, "Go to Summary")}/>
 
       <MealList />
 
@@ -27,8 +29,8 @@ function App() {
         show={showModal}
         onClose={closeModal}
         content={modalContent}
-        openForm={() => openModal(<Form />)}
-        actionText={""}
+        onOpen={() => openModal(<Form />, "Submit")}
+        actionText={modalButtonText}
       />
     </CartProvider>
   );
