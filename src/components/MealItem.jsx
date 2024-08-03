@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import CartContext from "../context/CartContext"
+import Button from "./Button";
 
 export default function MealItem({ id, imgSrc, name, price, description }) {
     const {addToCart} = useContext(CartContext);
@@ -12,19 +13,18 @@ export default function MealItem({ id, imgSrc, name, price, description }) {
                 <h1 className="meal-item-price">${price}</h1>
                 <p className="meal-item-description">{description}</p>
                 <div className="meal-item-actions">
-                    <button
+                    <Button
+                        text="Add to Cart"
                         type="button"
-                        className="button"
-                        onClick={() => addToCart({
+                        classes="button"
+                        action={() => addToCart({
                             id,
                             name,
                             price,
                             description,
                             imgSrc
                         })}
-                    >
-                        Add to Cart
-                    </button>
+                    />
                 </div>
             </article>
         </li>

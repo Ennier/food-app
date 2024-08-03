@@ -15,15 +15,15 @@ export default function Cart() {
                             <span>{meal.name} - {meal.quantity} X ${meal.price}</span>
                             <div className="cart-item-actions">
                                 <Button
-                                    action={() => addToCart(meal)}
-                                    text="+"
+                                    action={() => removeFromCart(meal.id)}
+                                    text="-"
                                 />
-
+                                
                                 <p>{meal.quantity}</p>
 
                                 <Button
-                                    action={() => removeFromCart(meal.id)}
-                                    text="-"
+                                    action={() => addToCart(meal)}
+                                    text="+"
                                 />
                             </div>
                         </li>
