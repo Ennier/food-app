@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import CartContext from "../context/CartContext";
 import Button from "./Button";
 
-export default function Form() {
+export default function OrderForm() {
     const { cartMeals } = useContext(CartContext);
     const totalAmount = cartMeals.reduce((total, meal) => total + Number(meal.price * meal.quantity), 0).toFixed(2);
 

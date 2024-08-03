@@ -4,7 +4,7 @@ import Header from "./components/Header.jsx";
 import MealList from "./components/MealList.jsx";
 import Modal from "./components/Modal.jsx";
 import Cart from "./components/Cart.jsx";
-import Form from "./components/Form.jsx";
+import Form from "./components/OrderForm.jsx";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
