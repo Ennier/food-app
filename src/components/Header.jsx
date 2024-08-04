@@ -2,6 +2,7 @@ import { useContext } from "react"
 import CartContext from "../context/CartContext"
 import Button from "./UI/Button";
 import LogoImg from "../../public/logo.jpg"
+
 export default function Header({ openCart }) {
     const { cartMeals } = useContext(CartContext);
 
