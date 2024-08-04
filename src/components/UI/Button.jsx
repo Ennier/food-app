@@ -1,11 +1,11 @@
-export default function Button({ children, text, amount, action, classes, ...props }) {
+export default function Button({ children, onClick, classes, ...props }) {
     return (
         <button
             className={classes}
-            onClick={action}
+            onClick={onClick}
             {...props}
         >
-            {text} {amount ? `(${amount})` : ""}
+            {children}
         </button>
     )
 }

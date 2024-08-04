@@ -90,7 +90,6 @@ h1 {
 
 .meal-item-description {
   margin: 1rem;
-  color: white;
 }
 
 .meal-item-price {
@@ -149,17 +148,8 @@ h1 {
   margin: 0.5rem 0;
 }
 
-.cart h2 {
-  color: black;
-}
-
-.cart-item span {
-  color: black;
-}
-
 .cart-item p {
   margin: 0;
-  color: black;
 }
 
 .cart-item-actions {
@@ -253,9 +243,6 @@ h1 {
   width: 80%;
   max-width: 40rem;
   animation: fade-slide-up 0.3s ease-out forwards;
-  position: absolute;
-  top: 20%;
-  left: 25%;
 }
 
 .modal::backdrop {
@@ -272,8 +259,4 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-form h1,p,label {
-  color: black;
 }

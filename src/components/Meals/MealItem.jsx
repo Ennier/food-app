@@ -17,17 +17,18 @@ export default function MealItem({ id, name, imgSrc, price, description }) {
                 </div>
                 <div className="meal-item-actions">
                     <Button
-                        text="Add to Cart"
                         type="button"
                         classes="button"
-                        action={() => addToCart({
+                        onClick={() => addToCart({
                             id,
                             name,
                             price,
                             description,
                             imgSrc
                         })}
-                    />
+                    >
+                        Add to Cart
+                    </Button>
                 </div>
             </article>
         </li>
