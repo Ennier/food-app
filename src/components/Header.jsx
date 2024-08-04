@@ -1,9 +1,9 @@
-import {useContext} from "react"
+import { useContext } from "react"
 import CartContext from "../context/CartContext"
-import Button from "./Button";
-
+import Button from "./UI/Button";
+import LogoImg from "../../public/logo.jpg"
 export default function Header({ openCart }) {
-    const {cartMeals} = useContext(CartContext);
+    const { cartMeals } = useContext(CartContext);
 
     const totalAmount = cartMeals.reduce((sum, meal) => sum + meal.quantity, 0);
 
@@ -12,10 +12,8 @@ export default function Header({ openCart }) {
     return (
         <header id="main-header">
             <div id="title">
-                <h1 id="title">
-                    <img src="../../public/logo.jpg" alt=""/>
-                    REACT FOODORDER
-                </h1>
+                <img src={LogoImg} alt="" />
+                <h1>REACT FOODORDER</h1>
             </div>
             <Button
                 text="Cart"

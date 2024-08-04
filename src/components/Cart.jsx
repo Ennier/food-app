@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import CartContext from "../context/CartContext";
-import Button from "./Button";
+import Button from "./UI/Button";
 
 export default function Cart() {
     const {cartMeals, addToCart, removeFromCart} = useContext(CartContext);
@@ -18,7 +18,7 @@ export default function Cart() {
                                     action={() => removeFromCart(meal.id)}
                                     text="-"
                                 />
-                                
+
                                 <p>{meal.quantity}</p>
 
                                 <Button

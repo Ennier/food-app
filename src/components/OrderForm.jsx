@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import CartContext from "../context/CartContext";
-import Button from "./Button";
+import Button from "./UI/Button";
 
 export default function OrderForm() {
     const { cartMeals } = useContext(CartContext);

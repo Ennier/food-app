@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { CartProvider } from "./context/CartProvider.jsx";
+import { CartProvider } from "./context/CartContextProvider.jsx";
 import Header from "./components/Header.jsx";
 import MealList from "./components/MealList.jsx";
 import Modal from "./components/Modal.jsx";

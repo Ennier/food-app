@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import Button from './Button';
+import Button from './UI/Button';
 
 export default function Modal({ show, onClose, content, actionText, onOpen}) {
 
