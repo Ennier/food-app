@@ -5,6 +5,8 @@ import Button from "./UI/Button";
 export default function Cart() {
     const {cartMeals, addToCart, removeFromCart} = useContext(CartContext);
 
+    const totalPrice = cartMeals.reduce((total, meal) => total + Number(meal.price*meal.quantity), 0).toFixed(2);
+
     return (
         <div className="cart">
             <h2>Your Cart</h2>
@@ -32,7 +34,7 @@ export default function Cart() {
             </ul>
             <div className="cart-total">
                 <span>
-                    Total: {cartMeals.reduce((total, meal) => total + Number(meal.price*meal.quantity), 0).toFixed(2)}
+                    Total: {totalPrice}
                 </span>
             </div>
         </div>
