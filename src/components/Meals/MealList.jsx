@@ -1,5 +1,6 @@
 import useHttp from "../../hooks/useHttp.js";
 import MealItem from "./MealItem.jsx";
+import Error from "../UI/Error.jsx";
 
 const requestConfig = {};
 
@@ -12,12 +13,11 @@ export default function MealList() {
 
 
     if (isLoading) {
-        return <p>Loading meals...</p>
+        return <p className="center">Loading meals...</p>
     }
 
-    /** backend error UI validation */
     if (error) {
-        return <p> Error: Backend not responding. Backend error: {error}</p>
+        return <Error title='Failed to fetch meals' message={error}></Error>
     }
 
     return (
