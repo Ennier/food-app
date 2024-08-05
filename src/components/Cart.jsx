@@ -7,15 +7,19 @@ import { currencyFormatter } from "../util/formatting";
 
 export default function Cart() {
     const { cartMeals, addToCart, removeFromCart } = useContext(CartContext);
-    const userProgressCtx = useContext(UserProgressContext)
+    const userProgressCtx = useContext(UserProgressContext);
 
     const cartTotalPrice = cartMeals.reduce((total, meal) => total + Number(meal.price * meal.quantity), 0).toFixed(2);
 
-    function handleCloseCart(params) {
+    function handleCloseCart() {
         userProgressCtx.hideCart();
     }
 
-    return <Modal className="cart" open={userProgressCtx.progress === 'cart'}>
+    function handleGoToCheckout() {
+        userProgressCtx.showCheckout();
+    }
+
+    return <Modal className="cart" open={userProgressCtx.progress === 'cart'} onClose={userProgressCtx.progress === 'cart' ? handleCloseCart : null}>
         <h2>Your Cart</h2>
         <ul>
             {cartMeals.map((meal) => (
@@ -44,9 +48,7 @@ export default function Cart() {
             <Button classes='text-button' onClick={handleCloseCart}>
                 Close
             </Button>
-            <Button classes='button' onClick={handleCloseCart}>
-                Go to Summary
-            </Button>
+            {cartMeals.length > 0 && <Button classes='button' onClick={handleGoToCheckout}>Go to Summary</Button>}
         </p>
     </Modal>
 }
