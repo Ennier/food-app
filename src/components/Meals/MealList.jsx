@@ -1,38 +1,23 @@
+import useHttp from "../../hooks/useHttp.js";
 import MealItem from "./MealItem.jsx";
-import { useEffect, useState } from "react";
+
+const requestConfig = {};
 
 export default function MealList() {
-    const [meals, setMeals] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchMeals = async () => {
-            try {
-                const res = await fetch('http://localhost:3000/meals');
-                if (!res.ok) {
-                    throw new Error('Backend service is not responding');
-                }
-                const data = await res.json();
-                setMeals(data)
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchMeals();
-    }, []);
+    const {
+        data: meals,
+        isLoading,
+        error
+    } = useHttp( 'http://localhost:3000/meals', requestConfig, []);
 
 
-    if (loading) {
-        return <p>Loading...</p>
+    if (isLoading) {
+        return <p>Loading meals...</p>
     }
 
     /** backend error UI validation */
     if (error) {
-        return <p> Error: Backend not responding</p>
+        return <p> Error: Backend not responding. Backend error: {error}</p>
     }
 
     return (

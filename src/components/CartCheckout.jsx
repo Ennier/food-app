@@ -30,8 +30,6 @@ export default function CartCheckout() {
         }));
     }
 
-    console.log(formData);
-
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -57,29 +55,29 @@ export default function CartCheckout() {
         }
 
         try {
-            const response = fetch('http://localhost:3000/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ order: orderData })
-            })
-
-            if (response.ok) {
-                setSucces('Order placed succesfully');
-                setFormData({
-                    name: "",
-                    email: "",
-                    street: "",
-                    'postal-code': "",
-                    city: ""
+                const response = fetch('http://localhost:3000/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ order: orderData })
                 })
-                setError(null);
-                console.log("200: request succesful")
-            } else {
-                const data = await response.json();
-                setError(data.message || 'An error ocurred');
-            }
+
+                if (response.ok) {
+                    setSucces('Order placed succesfully');
+                    setFormData({
+                        name: "",
+                        email: "",
+                        street: "",
+                        'postal-code': "",
+                        city: ""
+                    })
+                    setError(null);
+                    console.log("200: request succesful")
+                } else {
+                    const data = await response.json();
+                    setError(data.message || 'An error ocurred');
+                }
         } catch (error) {
             setError('An error ocurred ' + error.message);
         }
