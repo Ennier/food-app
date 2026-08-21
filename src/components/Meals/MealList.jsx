@@ -27,12 +27,12 @@ export default function MealList() {
 
 
     if (loading) {
-        return <p>Loading...</p>
+        return <p className="status-message">Printing today's menu...</p>
     }
 
     /** backend error UI validation */
     if (error) {
-        return <p> Error: Backend not responding</p>
+        return <p className="status-message status-message-error">Kitchen's offline — the menu didn't come through. Try refreshing.</p>
     }
 
     return (

@@ -8,19 +8,21 @@ export default function Modal({ show, onClose, content, actionText, onOpen}) {
     }
 
     return ReactDOM.createPortal(
-        <div className="modal">
-            {content}
-            <div className="modal-actions">
-                <Button
-                    classes="text-button"
-                    action={onClose}
-                    text="Close"
-                />
-                <Button
-                    classes="button"
-                    action={onOpen}
-                    text={actionText}
-                />
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                {content}
+                <div className="modal-actions">
+                    <Button
+                        classes="text-button"
+                        action={onClose}
+                        text="Close"
+                    />
+                    <Button
+                        classes="button"
+                        action={onOpen}
+                        text={actionText}
+                    />
+                </div>
             </div>
         </div>,
         document.getElementById("modal")

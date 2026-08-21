@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import CartContext from "../context/CartContext";
 import Button from "./UI/Button";
+import { currencyFormatter } from "../util/formatting";
 
 export default function OrderForm() {
     const { cartMeals } = useContext(CartContext);
@@ -37,7 +38,7 @@ export default function OrderForm() {
             return setError('Please fill all the required fields with valid data');
         }
 
-        if (!cartMeals) {
+        if (!cartMeals.length) {
             return setError('Please add at least one product to the Cart');
         }
 
@@ -52,7 +53,7 @@ export default function OrderForm() {
         }
 
         try {
-            const response = fetch('http://localhost:3000/orders', {
+            const response = await fetch('http://localhost:3000/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -82,7 +83,14 @@ export default function OrderForm() {
     return (
         <form onSubmit={handleSubmit}>
             <h1>Checkout</h1>
-            <p>Total Amount: {totalAmount}</p>
+            <p className="order-total">
+                <span>Total Amount</span>
+                <span className="price-leader" aria-hidden="true"></span>
+                <span>{currencyFormatter.format(totalAmount)}</span>
+            </p>
+
+            {error && <p className="form-message form-message-error">{error}</p>}
+            {success && <p className="form-message form-message-success">{success}</p>}
 
             <div className="control">
                 <label htmlFor="name">Full name</label>

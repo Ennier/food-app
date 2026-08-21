@@ -23,6 +23,10 @@ export const CartProvider = ({ children }) => {
         });
     }
 
+    function clearCart() {
+        setCartMeals([]);
+    }
+
     function removeFromCart(mealId) {
         setCartMeals(prevCartMeals => {
             const existingMealIndex = prevCartMeals.findIndex(meal => meal.id === mealId);
@@ -43,7 +47,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cartMeals, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cartMeals, addToCart, removeFromCart, clearCart }}>
             {children}
         </CartContext.Provider>
     )

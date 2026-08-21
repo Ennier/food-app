@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import CartContext from "../context/CartContext"
 import Button from "./UI/Button";
-import LogoImg from "../../public/logo.jpg"
 
 export default function Header({ openCart }) {
     const { cartMeals } = useContext(CartContext);
@@ -13,7 +12,7 @@ export default function Header({ openCart }) {
     return (
         <header id="main-header">
             <div id="title">
-                <img src={LogoImg} alt="" />
+                <img src="/logo.jpg" alt="" />
                 <h1>REACT FOODORDER</h1>
             </div>
             <Button
